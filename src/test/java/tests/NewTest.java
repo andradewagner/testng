@@ -26,8 +26,8 @@ public class NewTest {
     @BeforeClass
     public void beforeClass() {
         System.setProperty("webdriver.chrome.driver", "/home/wagner/chromedriver");
-        System.setProperty("webdriver.chrome.logfile", "/home/wagner/chromedriver.log");
-        System.setProperty("webdriver.chrome.verboseLogging", "true");
+        //System.setProperty("webdriver.chrome.logfile", "/home/wagner/chromedriver.log");
+        //System.setProperty("webdriver.chrome.verboseLogging", "true");
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("disable-infobars");
