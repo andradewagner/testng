@@ -25,7 +25,7 @@ public class NewTest {
 
     @BeforeClass
     public void beforeClass() {
-        System.setProperty("webdriver.chrome.driver", "/home/wagner/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("disable-infobars");
