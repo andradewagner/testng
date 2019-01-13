@@ -1,12 +1,18 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.Test;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.AfterClass;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class NewTest {
 
@@ -24,16 +30,19 @@ public class NewTest {
     }
 
     @BeforeClass
-    public void beforeClass() {
+    public void beforeClass() throws MalformedURLException {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("disable-infobars");
         options.setExperimentalOption("useAutomationExtension", false);
-        options.addArguments("user-data-dir=/home/wagner/snap/chromium/562/.config/chromium/Default");
+        //options.addArguments("user-data-dir=/home/wagner/snap/chromium/562/.config/chromium/Default");
         options.addArguments("headless");
 
-        driver = new ChromeDriver(options);
+        DesiredCapabilities caps = DesiredCapabilities.chrome();
+        caps.setCapability(ChromeOptions.CAPABILITY, options);
+
+        driver = new RemoteWebDriver(new URL("http://127.0.0.1:4444/wd/hub"), caps);
     }
 
     @AfterClass
