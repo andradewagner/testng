@@ -32,7 +32,7 @@ public class NewTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("disable-infobars");
         options.setExperimentalOption("useAutomationExtension", false);
-        //options.addArguments("user-data-dir=/home/wagner/snap/chromium/562/.config/chromium/Default");
+        options.addArguments("user-data-dir=/home/wagner/snap/chromium/562/.config/chromium/Default");
 
         String gui = System.getProperty("gui");
 
