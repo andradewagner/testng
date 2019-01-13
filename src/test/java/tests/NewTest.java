@@ -26,20 +26,12 @@ public class NewTest {
     @BeforeClass
     public void beforeClass() {
         System.setProperty("webdriver.chrome.driver", "/home/wagner/chromedriver");
-        //System.setProperty("webdriver.chrome.logfile", "/home/wagner/chromedriver.log");
-        //System.setProperty("webdriver.chrome.verboseLogging", "true");
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("disable-infobars");
         options.setExperimentalOption("useAutomationExtension", false);
         options.addArguments("user-data-dir=/home/wagner/snap/chromium/562/.config/chromium/Default");
-
-        String gui = System.getProperty("gui");
-
-        if("nongui".equals(gui)) {
-            System.out.println(">>>>>>>>>> Executando em modo headless <<<<<<<<<<");
-            options.addArguments("headless");
-        }
+        options.addArguments("headless");
 
         driver = new ChromeDriver(options);
     }
